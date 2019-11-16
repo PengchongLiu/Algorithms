@@ -1,2 +1,2 @@
 # Algorithms
-Coding Challenges
+Coding Exercises from Qishi Algorithms Study Group
