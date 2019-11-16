@@ -1,9 +1,9 @@
 import time
 
 
-def partition(n):
+def partition(n: int) -> list:
 
-    def search(n, k, cache):
+    def search(n: int, k: int, cache: list) -> list:
         # search for partitions of n with largest element k
         if cache[n][k]:
             return cache[n][k]
@@ -37,9 +37,9 @@ def partition(n):
 
 if __name__ == "__main__":
 
-    num = 5
+    num = int(input("Target = "))
     stt = time.time()
     res = partition(num)
-    print("Time: %.4f ms" % ((time.time()-stt)*1000))
+    print("Time: %.2f ms" % ((time.time()-stt)*1000))
     print("Number of partitions:", len(res))
     print("All partitions:", sorted(res, reverse=True)[:20])
