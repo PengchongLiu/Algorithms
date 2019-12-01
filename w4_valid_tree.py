@@ -75,5 +75,5 @@ if __name__ == "__main__":
         [1, 4]
     ]
 
-    sol = Solution('bfs')
+    sol = Solution(method='bfs')
     print(sol.validTree(N, edges))
