@@ -7,6 +7,9 @@ class Solution:
         # Here, we define the state by (coordinate i, coordinate j, collected keys, # of steps)
         # Then we use BFS with a Queue
 
+        # Weird python tips:
+        # It is much faster to use list/tuple than set/dict for key matching. Only tuple can be used in set (visited)
+        # However, set is much faster for searching than list (visited = set())
         keys_all = [0 for _ in range(6)]
         for k in ''.join(grid):
             if k in "abcdef":
