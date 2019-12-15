@@ -16,7 +16,7 @@ class Solution:
                 board.append('.'*(p)+'Q'+'.'*(n-p-1))
             return board
 
-        def search(pos: list, t: int):
+        def search(pos: list):
             if len(pos) == n:
                 self.res.append(getBoard(pos))
             else:
@@ -34,10 +34,10 @@ class Solution:
                         continue
 
                     # Iterate each column at current row = len(pos) - 1
-                    search(pos+[i], i)
+                    search(pos+[i])
             return
 
-        search([], -1)
+        search([])
         return self.res
 
 if __name__ == "__main__":
