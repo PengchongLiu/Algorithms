@@ -16,14 +16,14 @@ class Solution:
         #        search(cur+[nxt[0]], nxt[1:])
         #        search(cur, nxt[1:])
         #    return
-        #search([], list(range(1, n+1)))
+        #search([], list(range(n, 0, -1)))
 
         def search(comb: list, n: int, k: int):
             # Fast solution
             if k == 0:
                 res.append(comb)
             else:
-                for i in range(1, n+1):
+                for i in range(n, 0, -1):
                     search(comb+[i], i-1, k-1)
         search([], n, k)
         return res
@@ -31,5 +31,5 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    res = sol.combine(5, 3)
+    res = sol.combine(5, 2)
     print(res)
