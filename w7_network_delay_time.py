@@ -6,11 +6,11 @@ from collections import defaultdict
 class Solution:
     # 484 ms: using heapq for Q and defaultdict(dict) for S
     def networkDelayTime(self, times, N: int, K: int) -> int:
-        # Dijkstra's algo to find longest time.
+        # Dijkstra's algo to find the maximum of the minimum time of each node
         graph = defaultdict(dict)
-        for u, v, c in times:
+        for u, v, t in times:
             # graph[u].add((v, c))
-            graph[u][v] = c
+            graph[u][v] = t
 
         Q = [(0, K)]
         S = {}
@@ -24,24 +24,6 @@ class Solution:
                     heapq.heappush(Q, (du+graph[u][v], v))
 
         return max(S.values()) if len(S) == N else -1
-
-
-class Solution2:
-    def networkDelayTime(self, times, N: int, K: int) -> int:
-        d = defaultdict(dict)
-        for i, j, k in times:
-            d[i][j] = k
-        pq = [(0, K)]
-        visited = set()
-        while pq:
-            time, src = heapq.heappop(pq)
-            visited.add(src)
-            if len(visited) == N:
-                return time
-            for nxt in d[src]:
-                if nxt not in visited:
-                    heapq.heappush(pq, (time+d[src][nxt], nxt))
-        return -1
 
 
 if __name__ == '__main__':
